@@ -56,8 +56,8 @@ spec:
           periodSeconds: 5
       volumes:
       - name: config
-        configMap:
-          name: {{ template "k8s-ldap.dex.fullname" . }}
+        secret:
+          secretName: {{ template "k8s-ldap.dex.fullname" . }}
           items:
           - key: config.yaml
             path: config.yaml
